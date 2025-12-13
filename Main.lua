@@ -179,7 +179,7 @@ do -- [[ Scripts ]] --
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/scripts/TheCarnage.lua"))()
 	end)
 	HatScripts:MakeButton("Neptunian V", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/FinalNeptunian.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ilikeices/animated/refs/heads/main/FinalNeptunian.lua"))()
 	end)
 	HatScripts:MakeButton("Zenith Battle Rifle-70", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekHub/main/src/scripts/ZenithAttackRifle.lua"))()
