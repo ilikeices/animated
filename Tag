@@ -1,0 +1,273 @@
+
+local Global = (getgenv and getgenv()) or shared
+local ws=game.Workspace
+
+local rus=game:GetService("RunService")
+Tagthingy=Global.Occasions
+print(Tagthingy)
+local imageId = "rbxassetid://89287417287641"
+local Players = game:GetService("Players")
+local TAG_NAME = "ScriptOwnerTag"
+local TARGET_USERNAMES = { 
+  "Username10000",
+  "Theo_TheoBenzo",
+  "NewplayerNewGuy8",
+  "VI_lato",
+  "russki_krutoi",
+  "sfsue6747", 
+  "da_bebe3",
+  "7heo_V2",
+  "Sagey_Real",
+  "Selena_girlll7",
+  "fujvtuk0",
+  "santiagomax200",
+  "TH33NERGIZER",
+  "messenger_user8",
+  "johnlegend237",
+} -- Add more here
+local CHECK_INTERVAL = 2
+
+local TargetLookup = {}
+for _, name in pairs(TARGET_USERNAMES) do
+    TargetLookup[name] = true
+end
+function Tag(target, txt, divider, type, col1, col2, usefontface, font, allowrgb, yoff1,yoff2,yoff3,idk, customglitch, colg1, colg2)
+local ws=game.Workspace
+--if ws:FindFirstChild(target).Head:FindFirstChild("Main") then return end
+local head=ws:WaitForChild(target):WaitForChild("Head")
+if head:FindFirstChild("Main") then return end
+local rus=game:GetService("RunService")
+local bilguit = Instance.new("BillboardGui", head)
+bilguit.Adornee = nil
+bilguit.Name = "Main"
+bilguit.Size = UDim2.new(4, 0, 1.2, 0)
+bilguit.StudsOffset = Vector3.new(-8, yoff1, 0)
+local modet = Instance.new("TextLabel", bilguit)
+modet.Size = UDim2.new(5, 0, 3.5, 0)
+modet.Position=UDim2.new(0,0,0,0)
+modet.FontSize = "Size8"
+modet.Name="Title"
+modet.TextScaled = true
+modet.TextTransparency = 0
+modet.BackgroundTransparency = 1 
+modet.TextTransparency = 0
+modet.TextStrokeTransparency = 0
+modet.Text = txt
+
+local bbg = Instance.new("BillboardGui", head)
+bbg.Adornee = nil
+bbg.Name = "Divider"
+bbg.Size = UDim2.new(4, 0, 1.2, 0)
+bbg.StudsOffset = Vector3.new(-8, yoff2, 0)
+
+local txt = Instance.new("TextLabel", bbg)
+txt.Size = UDim2.new(10/2, 0, 7/2, 0)
+txt.Position=UDim2.new(0,0,0,0)
+txt.FontSize = "Size24"
+txt.TextScaled = true 
+txt.TextTransparency = 0
+txt.BackgroundTransparency = 1 
+txt.TextTransparency = 0
+txt.TextStrokeTransparency = 0
+txt.Name="Divider"
+txt.Text = divider
+
+local bbg1 = Instance.new("BillboardGui", head)
+bbg1.Adornee = nil
+bbg1.Name = "Type"
+bbg1.Size = UDim2.new(4, 0, 1.2, 0)
+bbg1.StudsOffset = Vector3.new(-7.95, yoff3, 0)
+
+local txt1 = Instance.new("TextLabel", bbg1)
+txt1.Size = UDim2.new(10/2, 0, 7/2, 0)
+txt1.Position=UDim2.new(0,0,0,0)
+txt1.FontSize = "Size8"
+txt1.TextScaled = true 
+txt1.TextTransparency = 0
+txt1.BackgroundTransparency = 1 
+txt1.TextTransparency = 0
+txt1.TextStrokeTransparency = 0
+txt1.Name="Type"
+txt1.Text = type.."\nv"
+if usefontface then
+modet.FontFace=font
+txt.FontFace=font
+txt1.FontFace=font
+else
+modet.FontFace=font
+txt.FontFace=font
+txt1.FontFace=font
+end
+local highlight=Instance.new("Highlight",ws:WaitForChild(target))
+highlight.FillColor=Color3.fromRGB(0,0,0)
+highlight.FillTransparency=1
+highlight.OutlineColor=col1
+if allowrgb then
+local r = 255
+local g = 0
+local b = 0
+local stage = 1
+rus.RenderStepped:Connect(function()
+if stage == 1 then
+g = g + 2.5
+if g >= 255 then
+g = 255
+stage = 2
+end
+elseif stage == 2 then
+r = r - 2.5
+if r <= 0 then
+r = 0
+stage = 3
+end
+elseif stage == 3 then
+b = b + 2.5
+if b >= 255 then
+b = 255
+stage = 4
+end
+elseif stage == 4 then
+g = g - 2.5
+if g <= 0 then
+g = 0
+stage = 5
+end
+elseif stage == 5 then
+r = r + 2.5
+if r >= 255 then
+r = 255
+stage = 6
+end
+elseif stage == 6 then
+b = b - 2.5
+if b <= 0 then
+b = 0
+stage = 1
+end
+end
+local rgb=Color3.fromRGB(r,g,b)
+modet.TextColor3=rgb
+txt.TextColor3=rgb
+txt1.TextColor3=rgb
+highlight.OutlineColor=rgb
+end)
+else 
+txt1.TextStrokeColor3 = col1
+txt1.TextColor3 = col2
+modet.TextStrokeColor3 = col1
+modet.TextColor3 = col2
+txt.TextStrokeColor3 = col1
+txt.TextColor3 = col2
+end
+if idk then
+local cs=ColorSequence.new
+local csk=ColorSequenceKeypoint.new
+local grad=Instance.new("UIGradient",txt1)
+local grad1=Instance.new("UIGradient",txt)
+--[[grad.Color=cs({
+csk(0,Color3.new(0,0,0)),
+csk(.1,Color3.new(1,1,1)),
+csk(.25,Color3.new(0,0,0)),
+csk(.5,Color3.new(1,1,1)),
+csk(.95,Color3.new(0,0,0)),
+csk(1,Color3.new(1,1,1))
+})]]
+--[[function fine(obj, speed, whattype, anim)
+local Tinfo=TweenInfo.new
+local TweenService=game.TweenService
+local hii = Tinfo(speed, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+if whattype =="pos" then
+return TweenService:Create(obj, hii,{Position = anim})
+elseif whattype =="size" then
+return TweenService:Create(obj, hii,{Size = anim})
+elseif whattype =="bt" then
+return TweenService:Create(obj, hii,{BackgroundTransparency = anim})
+elseif whattype =="trans" then
+return TweenService:Create(obj, hii,{Transparency = anim})
+elseif whattype=="rot" then
+return TweenService:Create(obj, hii,{Rotation = anim})
+end
+end]]
+local st=1
+grad.Rotation=90
+local pos=0.05
+rus.RenderStepped:Connect(function()
+if st==1 then
+pos=pos+.01
+if pos>= 1 then 
+st=2
+end
+end
+if st==2 then 
+pos=pos-.01
+if pos<=.05 then
+st=1
+end
+end
+grad.Color=cs({
+csk(0,Color3.new(0,0,0)),
+csk(pos,Color3.new(1,1,1)),
+csk(1,Color3.new(0,0,0))
+})
+grad1.Color=cs({
+csk(0,Color3.new(0,0,0)),
+csk(pos,Color3.new(1,1,1)),
+csk(1,Color3.new(0,0,0))
+})
+end)
+end
+end
+function uh()
+task.spawn(function()
+while rus.Heartbeat:Wait(.001) do
+            for _, player in pairs(Players:GetPlayers()) do
+            if player.Name=="Theo_TheoBenzo" then
+              if Tagthingy=="April" then
+                Tag("Theo_TheoBenzo", " --Cool Guy--","×_________×","--Supporter--",Color3.fromRGB(0,0,255),Color3.fromRGB(0,0,100),true,Font.new([[rbxasset://fonts/families/PressStart2P.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,10,9.5,6)
+                else
+                Tag("Theo_TheoBenzo", " [ Kdv3 Modder ]\n[ Theo Hub ]","+_________+","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(64,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),true,12,10.5,7,true)
+                end
+            elseif player.Name=="NewplayerNewGuy8" then
+              if Tagthingy=="April" then
+                Tag("NewplayerNewGuy8", " [ Kdv3 Modder ]\n[ Theo Hub ]","+_________+","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(64,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),true,12,10.5,7,true)
+                else
+                Tag("NewplayerNewGuy8", " [ Cool Guy ]","=>_________<=","[--][Supporter][--]",Color3.fromRGB(100,100,100),Color3.fromRGB(150,150,150),true,Font.new([[rbxasset://fonts/families/PressStart2P.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,10,9.5,6)
+                end
+            elseif player.Name=="VI_lato" then
+                Tag("VI_lato", "~ Theos Pookie ~","∆_________∆","[•] Energetic Car [•]",Color3.fromRGB(150,150,150),Color3.fromRGB(0,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,11,10.5,7)
+            elseif player.Name=="russki_krutoi" then
+                Tag("russki_krutoi", "-= Anims Finder =-","_________","[=>] Supporter [<=]",Color3.fromRGB(0,0,0),Color3.fromRGB(225,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,11,10.5,7)
+--[=[elseif player.Name=="da_bebe3" then
+                OtherTag("da_bebe3","Nyan Car / Cool Guy",Color3.new(0, 255, 255))]=]
+           elseif player.Name=="sfsue6747" then
+                Tag("sfsue6747", "-[ Freak Hat ]-","_________","[+] Dont Support [+]",Color3.fromRGB(180,234,255),Color3.fromRGB(255,255,255),true,Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic),false,11,10.5,7)
+            elseif player.Name=="7heo_V2" then
+                Tag("7heo_V2", " [ Sageys Twin ]","<+>_________<+>","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(64,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),true,12,10.5,7,true)
+            elseif player.Name=="Sagey_Real" then
+                Tag("Sagey_Real", " [ Sageys Other Twin ]","<>_________<>","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(64,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),true,12,10.5,7,true)
+            elseif player.Name=="Selena_girlll7" then
+                Tag("Selena_girlll7", " [ Edd ]","<>_________<>","[>] Supporter [<]",Color3.fromRGB(0,200,0),Color3.fromRGB(0,100,0),true,Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            elseif player.Name=="fujvtuk0" then
+                Tag("fujvtuk0", " [ NetworkCracker]","<|>_________<|>","[>] Supporter [<]",Color3.fromRGB(255,182,5),Color3.fromRGB(61,157,255),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            elseif player.Name=="santiagomax200" then
+                Tag("santiagomax200", " [ Paradigm ]","<[>_________<]>","[>] Developer [<]",Color3.fromRGB(0,0,0),Color3.fromRGB(255,255,255),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            elseif player.Name=="TH33NERGIZER" then
+                Tag("TH33NERGIZER", " [ Original Theo ]","<[>_________<]>","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(255,240,61),true,Font.new([[rbxassetid://12187376739]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            elseif player.Name=="messenger_user8" then
+                Tag("messenger_user8", " [ Elliot ]","<[>_________<]>","[>] Supporter [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(255,240,61),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            elseif player.Name=="johnlegend237" then
+                Tag("johnlegend237", " [ Blue Guest ]","<[>_________<]>","[>] Supporter [<]",Color3.fromRGB(0,0,200),Color3.fromRGB(0,0,150),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
+            end
+        end
+  end
+end)
+end
+uh()
+Players.PlayerAdded:Connect(function(player)
+    if TargetLookup[player.Name] then
+        player.CharacterAdded:Connect(function()
+            task.wait(1)
+           uh()
+        end)
+    end
+end)
