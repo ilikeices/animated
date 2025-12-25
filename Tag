@@ -219,8 +219,8 @@ end
 end
 function uh()
 task.spawn(function()
+local player = Players.LocalPlayer
 while rus.Heartbeat:Wait(.001) do
-            for _, player in pairs(Players:GetPlayers()) do
             if player.Name=="Theo_TheoBenzo" then
               if Tagthingy=="April" then
                 Tag("Theo_TheoBenzo", " --Cool Guy--","×_________×","--Supporter--",Color3.fromRGB(0,0,255),Color3.fromRGB(0,0,100),true,Font.new([[rbxasset://fonts/families/PressStart2P.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,10,9.5,6)
@@ -258,16 +258,8 @@ while rus.Heartbeat:Wait(.001) do
             elseif player.Name=="johnlegend237" then
                 Tag("johnlegend237", " [ Blue Guest ]","<[>_________<]>","[>] Supporter [<]",Color3.fromRGB(0,0,200),Color3.fromRGB(0,0,150),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,12,10.5,7,false)
             end
-        end
+        
   end
 end)
 end
 uh()
-Players.PlayerAdded:Connect(function(player)
-    if TargetLookup[player.Name] then
-        player.CharacterAdded:Connect(function()
-            task.wait(1)
-           uh()
-        end)
-    end
-end)
