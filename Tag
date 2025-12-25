@@ -238,9 +238,9 @@ while rus.Heartbeat:Wait(.001) do
             elseif player.Name=="russki_krutoi" then
                 Tag("russki_krutoi", "-= Anims Finder =-","_________","[=>] Supporter [<=]",Color3.fromRGB(0,0,0),Color3.fromRGB(225,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),false,11,10.5,7)
 --[=[elseif player.Name=="da_bebe3" then
-                OtherTag("da_bebe3","Nyan Car / Cool Guy",Color3.new(0, 255, 255))]=]
+                OtherTag("da_bebe3","Nyan Car / Cool Guy",Color3.new(0, 255, 255))
            elseif player.Name=="sfsue6747" then
-                Tag("sfsue6747", "-[ Freak Hat ]-","_________","[+] Dont Support [+]",Color3.fromRGB(180,234,255),Color3.fromRGB(255,255,255),true,Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic),false,11,10.5,7)
+                Tag("sfsue6747", "-[ Freak Hat ]-","_________","[+] Dont Support [+]",Color3.fromRGB(180,234,255),Color3.fromRGB(255,255,255),true,Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Bold, Enum.FontStyle.Italic),false,11,10.5,7)]=]
             elseif player.Name=="7heo_V2" then
                 Tag("7heo_V2", " [ Sageys Twin ]","<+>_________<+>","[>] Developer [<]",Color3.fromRGB(255,0,0),Color3.fromRGB(64,0,0),true,Font.new([[rbxasset://fonts/families/Sarpanch.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal),true,12,10.5,7,true)
             elseif player.Name=="Sagey_Real" then
